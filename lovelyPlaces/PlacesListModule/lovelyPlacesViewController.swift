@@ -16,6 +16,10 @@ class lovelyPlacesViewController: UIViewController {
     let interactor: lovelyPlacesBusinessLogic
     var state: lovelyPlaces.ViewControllerState
 
+    private var rootView: lovelyPlacesView? {
+        return view as? lovelyPlacesView
+    }
+    
     init(interactor: lovelyPlacesBusinessLogic, initialState: lovelyPlaces.ViewControllerState = .loading) {
         self.interactor = interactor
         self.state = initialState
@@ -28,13 +32,16 @@ class lovelyPlacesViewController: UIViewController {
 
     // MARK: View lifecycle
     override func loadView() {
-        let view = lovelyPlacesView(frame: UIScreen.main.bounds)
-        self.view = view
+       view = lovelyPlacesView(frame: UIScreen.main.bounds)
         // make additional setup of view or save references to subviews
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        rootView?.tableView.register(ListCell.self, forCellReuseIdentifier: ListCell.reuseId)
+        rootView?.tableView.dataSource = self
+        rootView?.tableView.delegate = self
         doSomething()
     }
 
@@ -43,6 +50,8 @@ class lovelyPlacesViewController: UIViewController {
         let request = lovelyPlaces.Something.Request()
         interactor.doSomething(request: request)
     }
+    
+
 }
 
 extension lovelyPlacesViewController: lovelyPlacesDisplayLogic {
@@ -64,4 +73,42 @@ extension lovelyPlacesViewController: lovelyPlacesDisplayLogic {
             print("empty result")
         }
     }
+}
+
+extension lovelyPlacesViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch state {
+            case .loading:
+                return 0
+            case .result(let viewModel):
+                return viewModel.count
+            case .emptyResult:
+                return 0
+            case .error(message: let message):
+                //PRESENT ALERT CONTROLLER WITH MESSAGE
+                return 0
+            }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: ListCell.reuseId, for: indexPath)
+        
+        if let placeCell = cell as? ListCell {
+            switch state {
+            case .loading:
+                print("")
+            case .result(let viewModel):
+                placeCell.setState(viewModel: viewModel[indexPath.row])
+            case .emptyResult:
+                print("")
+            case .error(message: let message):
+                print("")
+            }
+            
+        }
+        
+        return cell
+    }
+    
+    
 }

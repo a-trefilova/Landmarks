@@ -17,22 +17,17 @@ extension lovelyPlacesView {
 
 class lovelyPlacesView: UIView {
     let appearance = Appearance()
-    let dataSource = [lovelyPlacesModel]()
-    var collectionView: UICollectionView?
+    var tableView: UITableView = {
+        let tableView = UITableView(frame: CGRect.zero,
+                                    style: .plain)
+        tableView.separatorInset = .init(top: 0, left: 20, bottom: 0, right: 0)
+        return tableView
+    } ()
     
-    fileprivate(set) lazy var customView: UIView = {
-        let view = UIView()
-        return view
-    }()
 
     override init(frame: CGRect = CGRect.zero) {
+        
         super.init(frame: frame)
-        
-        
-        // DOESNT WORK !!!
-        
-        //  collectionView = UICollectionView(frame: CGRect(x: 10, y: 20, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
-        
         
         self.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
         addSubviews()
@@ -44,27 +39,21 @@ class lovelyPlacesView: UIView {
     }
 
     func addSubviews(){
-        addSubview(customView)
+        addSubview(tableView)
     }
 
     func makeConstraints() {
+        tableView.snp.makeConstraints { (make) in
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview()
+        }
     }
 }
 
 
 
-extension lovelyPlacesView: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        dataSource.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCell.reuseId, for: indexPath)
-        return cell
-    }
-    
-    
-}
 
 class CustomCell: UICollectionViewCell {
     

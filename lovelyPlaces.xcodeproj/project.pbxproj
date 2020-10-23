@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D6071E5A25433C4800790E0F /* LovelyPlacesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6071E5925433C4800790E0F /* LovelyPlacesListCell.swift */; };
 		D68D1840254184690026CA0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D183F254184690026CA0F /* AppDelegate.swift */; };
 		D68D1842254184690026CA0F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D1841254184690026CA0F /* SceneDelegate.swift */; };
 		D68D1849254184690026CA0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D68D1848254184690026CA0F /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D6071E5925433C4800790E0F /* LovelyPlacesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LovelyPlacesListCell.swift; sourceTree = "<group>"; };
 		D68D183C254184690026CA0F /* lovelyPlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lovelyPlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D68D183F254184690026CA0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D68D1841254184690026CA0F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +60,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D6071E582543395C00790E0F /* PlacesListModule */ = {
+			isa = PBXGroup;
+			children = (
+				D68D1868254189C00026CA0F /* lovelyPlacesViewController.swift */,
+				D68D185D254187EB0026CA0F /* View */,
+				D68D1856254184D10026CA0F /* Provider */,
+				D68D1855254184BF0026CA0F /* Model */,
+				D68D1860254188410026CA0F /* lovelyPlacesBuilder.swift */,
+				D68D18622541889F0026CA0F /* lovelyPlacesDataFlow.swift */,
+				D68D1864254188EA0026CA0F /* lovelyPlacesInteractor.swift */,
+				D68D1866254189610026CA0F /* lovelyPlacesPresenter.swift */,
+			);
+			path = PlacesListModule;
+			sourceTree = "<group>";
+		};
 		D68D1833254184690026CA0F = {
 			isa = PBXGroup;
 			children = (
@@ -78,20 +95,13 @@
 		D68D183E254184690026CA0F /* lovelyPlaces */ = {
 			isa = PBXGroup;
 			children = (
+				D6071E582543395C00790E0F /* PlacesListModule */,
 				D68D186A2541A7C40026CA0F /* Sources */,
-				D68D185D254187EB0026CA0F /* View */,
-				D68D1856254184D10026CA0F /* Provider */,
-				D68D1855254184BF0026CA0F /* Model */,
 				D68D183F254184690026CA0F /* AppDelegate.swift */,
 				D68D1841254184690026CA0F /* SceneDelegate.swift */,
 				D68D1848254184690026CA0F /* Assets.xcassets */,
 				D68D184A254184690026CA0F /* LaunchScreen.storyboard */,
 				D68D184D254184690026CA0F /* Info.plist */,
-				D68D1860254188410026CA0F /* lovelyPlacesBuilder.swift */,
-				D68D18622541889F0026CA0F /* lovelyPlacesDataFlow.swift */,
-				D68D1864254188EA0026CA0F /* lovelyPlacesInteractor.swift */,
-				D68D1866254189610026CA0F /* lovelyPlacesPresenter.swift */,
-				D68D1868254189C00026CA0F /* lovelyPlacesViewController.swift */,
 			);
 			path = lovelyPlaces;
 			sourceTree = "<group>";
@@ -118,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				D68D185E254187F40026CA0F /* lovelyPlacesView.swift */,
+				D6071E5925433C4800790E0F /* LovelyPlacesListCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -245,6 +256,7 @@
 				D68D1867254189610026CA0F /* lovelyPlacesPresenter.swift in Sources */,
 				D68D1861254188410026CA0F /* lovelyPlacesBuilder.swift in Sources */,
 				D68D1865254188EA0026CA0F /* lovelyPlacesInteractor.swift in Sources */,
+				D6071E5A25433C4800790E0F /* LovelyPlacesListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

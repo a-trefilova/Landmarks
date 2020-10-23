@@ -35,9 +35,6 @@ class lovelyPlacesService: lovelyPlacesServiceProtocol {
             let decodedData = try JSONDecoder().decode([lovelyPlacesModel].self,
                                                        from: jsonData)
             return(decodedData, nil)
-//            print("Title: ", decodedData.first?.name)
-//            print("Description: ", decodedData.first?.coordinates)
-//            print("===================================")
         } catch let error {
             print("decode error: \(error)")
             return (nil, error)

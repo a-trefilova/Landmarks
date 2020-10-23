@@ -28,7 +28,7 @@ enum lovelyPlaces {
 
     enum ViewControllerState {
         case loading
-        case result([Any/*viewModel*/])
+        case result([lovelyPlacesModel])
         case emptyResult
         case error(message: String)
     }

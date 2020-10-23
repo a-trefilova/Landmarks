@@ -8,7 +8,10 @@
 
 import Foundation
 
-
+struct listPlacesViewModel {
+    var places: [lovelyPlacesModel]
+    var title: String = "Landmarks"
+}
 
 /// Модель данных, описывающая ...
 struct lovelyPlacesModel: Codable {
