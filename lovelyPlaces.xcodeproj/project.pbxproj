@@ -95,13 +95,13 @@
 		D68D183E254184690026CA0F /* lovelyPlaces */ = {
 			isa = PBXGroup;
 			children = (
-				D6071E582543395C00790E0F /* PlacesListModule */,
-				D68D186A2541A7C40026CA0F /* Sources */,
 				D68D183F254184690026CA0F /* AppDelegate.swift */,
 				D68D1841254184690026CA0F /* SceneDelegate.swift */,
 				D68D1848254184690026CA0F /* Assets.xcassets */,
 				D68D184A254184690026CA0F /* LaunchScreen.storyboard */,
 				D68D184D254184690026CA0F /* Info.plist */,
+				D6071E582543395C00790E0F /* PlacesListModule */,
+				D68D186A2541A7C40026CA0F /* Sources */,
 			);
 			path = lovelyPlaces;
 			sourceTree = "<group>";

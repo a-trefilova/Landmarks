@@ -33,5 +33,22 @@ class lovelyPlacesPresenter: lovelyPlacesPresentationLogic {
         
         viewController?.displaySomething(viewModel: viewModel)
     }
+    
+//    func presentFavs(response: lovelyPlaces.Something.Response) {
+//        var viewModel: lovelyPlaces.Something.ViewModel
+//        
+//        switch response.result {
+//        case let .failure(error):
+//            viewModel = lovelyPlaces.Something.ViewModel(state: .error(message: error.localizedDescription))
+//        case let .success(result):
+//            if result.isEmpty {
+//                viewModel = lovelyPlaces.Something.ViewModel(state: .emptyResult)
+//            } else {
+//                viewModel = lovelyPlaces.Something.ViewModel(state: .result(result))
+//            }
+//        }
+//        
+//        viewController?.displaySomething(viewModel: viewModel)
+//    }
 }
 

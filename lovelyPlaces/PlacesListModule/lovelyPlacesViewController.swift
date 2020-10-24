@@ -42,7 +42,10 @@ class lovelyPlacesViewController: UIViewController {
         rootView?.tableView.register(ListCell.self, forCellReuseIdentifier: ListCell.reuseId)
         rootView?.tableView.dataSource = self
         rootView?.tableView.delegate = self
+        //rootView?.switchSlider.delegate = self
         doSomething()
+        
+        //when switch is on, CALL CHANGE FAVS 
     }
 
     // MARK: Do something
@@ -51,7 +54,11 @@ class lovelyPlacesViewController: UIViewController {
         interactor.doSomething(request: request)
     }
     
-
+    func changeFavs(isOn: Bool) {
+        let request = lovelyPlaces.Something.Request()
+        interactor.changeFavs(request: request, isFav: isOn)
+        
+    }
 }
 
 extension lovelyPlacesViewController: lovelyPlacesDisplayLogic {

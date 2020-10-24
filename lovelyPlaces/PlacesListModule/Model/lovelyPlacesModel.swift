@@ -10,7 +10,7 @@ import Foundation
 
 struct listPlacesViewModel {
     var places: [lovelyPlacesModel]
-    var title: String = "Landmarks"
+    var isFavouriteSwitchedOn: Bool
 }
 
 /// Модель данных, описывающая ...

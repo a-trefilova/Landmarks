@@ -24,11 +24,22 @@ class lovelyPlacesView: UIView {
         return tableView
     } ()
     
+    let headerView: UITableViewHeaderFooterView = {
+        let header = UITableViewHeaderFooterView()
+        header.textLabel?.text = "Favourites only"
+        header.textLabel?.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        return header
+    }()
+    
+    let switchSlider: UISwitch = {
+        let switchSlider = UISwitch()
+        switchSlider.setOn(false, animated: false)
+        return switchSlider
+    }()
 
     override init(frame: CGRect = CGRect.zero) {
-        
         super.init(frame: frame)
-        
+        tableView.tableHeaderView = headerView
         self.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
         addSubviews()
         makeConstraints()
@@ -40,6 +51,8 @@ class lovelyPlacesView: UIView {
 
     func addSubviews(){
         addSubview(tableView)
+        
+        tableView.tableHeaderView?.addSubview(switchSlider)
     }
 
     func makeConstraints() {
@@ -49,6 +62,12 @@ class lovelyPlacesView: UIView {
             make.top.equalToSuperview()
             make.bottom.equalToSuperview()
         }
+        
+        switchSlider.snp.makeConstraints { (make) in
+            make.trailing.equalToSuperview()
+        }
+        
+        
     }
 }
 
