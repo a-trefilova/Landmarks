@@ -50,19 +50,19 @@ class lovelyPlacesView: UIView {
         return switchSlider
     }()
     
-    let observer = Observer()
+   
     
     override init(frame: CGRect = CGRect.zero) {
         super.init(frame: frame)
         addSubviews()
         makeConstraints()
         switchSlider.addTarget(self, action: #selector(switchedOn), for: .valueChanged)
-        switchSlider.add(observer: observer)
+        
     }
 
     @objc func switchedOn() {
-        switchSlider.notify(bool: switchSlider.isOn)
-        
+        //switchSlider.notify(bool: switchSlider.isOn)
+        switchSlider.sendState()
         print("ON!")
     }
     
@@ -132,42 +132,14 @@ class lovelyPlacesView: UIView {
 }
 
 
-protocol ChangeOfswitchValue {
-    func add(observer: PropertyObserver)
-    func remove(observer: PropertyObserver)
-    func notify(bool: Bool)
-}
-
-protocol PropertyObserver {
-    func didGet(boolValue value: Bool)
-}
-
-class CustomSwitch: UISwitch, ChangeOfswitchValue {
+class CustomSwitch: UISwitch {
+    var delegate: Switchdelegate?
     
-    var observerCollection = NSMutableSet()
-    
-    func add(observer: PropertyObserver) {
-        observerCollection.add(observer)
-    }
-    
-    func remove(observer: PropertyObserver) {
-        observerCollection.remove(observer)
-    }
-    
-    func notify(bool: Bool) {
-        for observer in observerCollection {
-            (observer as! PropertyObserver).didGet(boolValue: bool)
-        }
+    func sendState() {
+        delegate?.switchDidChange(stateOfSwitch: self.isOn)
     }
 }
 
-class Observer: NSObject, PropertyObserver {
-    
-    var isOn: Bool = false
-    
-    func didGet(boolValue value: Bool) {
-        isOn = value
-    }
-    
-    
+protocol Switchdelegate {
+    func switchDidChange(stateOfSwitch: Bool)
 }

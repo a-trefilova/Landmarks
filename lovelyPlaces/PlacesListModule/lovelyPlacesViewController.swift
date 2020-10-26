@@ -47,6 +47,7 @@ class lovelyPlacesViewController: UIViewController {
         rootView?.tableView.register(ListCell.self, forCellReuseIdentifier: ListCell.reuseId)
         rootView?.tableView.dataSource = self
         rootView?.tableView.delegate = self
+        rootView?.switchSlider.delegate = self
         doSomething()
     }
     
@@ -59,8 +60,17 @@ class lovelyPlacesViewController: UIViewController {
     // MARK: Do something
     func doSomething() {
         let request = lovelyPlaces.Something.Request()
-        interactor.doSomething(request: request, isFav: rootView!.observer.isOn)
+        interactor.doSomething(request: request, isFav: false)
        
+    }
+    
+    
+}
+
+extension lovelyPlacesViewController: Switchdelegate {
+    func switchDidChange(stateOfSwitch: Bool) {
+        let request = lovelyPlaces.Something.Request()
+        interactor.doSomething(request: request, isFav: stateOfSwitch)
     }
     
     
