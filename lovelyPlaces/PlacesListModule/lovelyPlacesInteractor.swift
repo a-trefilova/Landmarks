@@ -7,8 +7,7 @@
 //
 
 protocol lovelyPlacesBusinessLogic {
-    func doSomething(request: lovelyPlaces.Something.Request)
-    func changeFavs(request: lovelyPlaces.Something.Request, isFav: Bool) 
+    func doSomething(request: lovelyPlaces.Something.Request, isFav: Bool)
 }
 
 /// Класс для описания бизнес-логики модуля places
@@ -22,22 +21,7 @@ class lovelyPlacesInteractor: lovelyPlacesBusinessLogic {
     }
     
     // MARK: Do something
-    func doSomething(request: lovelyPlaces.Something.Request) {
-        provider.getItems { (items, error) in
-            let result: lovelyPlaces.lovelyPlacesRequestResult
-            if let items = items {
-                result = .success(items)
-            } else if let error = error {
-                result = .failure(.someError(message: error.localizedDescription))
-            } else {
-                result = .failure(.someError(message: "No Data"))
-            }
-            self.presenter.presentSomething(response: lovelyPlaces.Something.Response(result: result))
-            
-        }
-    }
-    
-    func changeFavs(request: lovelyPlaces.Something.Request, isFav: Bool) {
+    func doSomething(request: lovelyPlaces.Something.Request, isFav: Bool) {
         provider.getItems { (items, error) in
             let result: lovelyPlaces.lovelyPlacesRequestResult
             if let items = items {
@@ -59,7 +43,10 @@ class lovelyPlacesInteractor: lovelyPlacesBusinessLogic {
                 result = .failure(.someError(message: "No Data"))
             }
             self.presenter.presentSomething(response: lovelyPlaces.Something.Response(result: result))
+            
         }
     }
+    
+    
 }
 

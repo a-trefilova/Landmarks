@@ -5,6 +5,11 @@ class ListCell: UITableViewCell {
     
     static let reuseId: String = "ListCell"
     
+    private let cellContentView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
     private let placeImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = imageView.bounds.height / 2
@@ -29,37 +34,32 @@ class ListCell: UITableViewCell {
     }
     
     
-    func setState(/*state: lovelyPlaces.ViewControllerState,*/ viewModel: lovelyPlacesModel) {
-//        switch state {
-//
-//        case .loading:
-//            print("loading")
-//        case .result(let model):
-//            titleLabel.text = model.first?.name
-//        case .emptyResult:
-//            print("result is empty")
-//        case .error(message: let message):
-//            print("error: \(message)")
-//        }
-        
+    func setState(viewModel: lovelyPlacesModel) {
+
         titleLabel.text = viewModel.name
         imageView?.image = UIImage(named: viewModel.imageName)
     }
     
     
     private func setUpSubViews() {
-        contentView.addSubview(titleLabel)
-        contentView.addSubview(placeImageView)
+        contentView.addSubview(cellContentView)
+        cellContentView.addSubview(titleLabel)
+        cellContentView.addSubview(placeImageView)
     }
     
     private func setUpConstraints() {
-//        self.snp.makeConstraints { (make) in
-//            make.height.equalTo(80)
-//        }
+            cellContentView.snp.makeConstraints { (make) in
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.height.equalTo(60)
+        }
+        
         placeImageView.snp.makeConstraints { (make) in
-            make.top.equalTo(5)
-            make.bottom.equalTo(5)
-            make.left.equalTo(20)
+            make.top.equalToSuperview().multipliedBy(5)
+            make.bottom.equalToSuperview().multipliedBy(5)
+            make.left.equalToSuperview().multipliedBy(20)
             //make.centerY.equalToSuperview()
             guard let view = superview else { return }
             make.height.equalTo(view.snp.height)
@@ -67,11 +67,8 @@ class ListCell: UITableViewCell {
         }
         
         titleLabel.snp.makeConstraints { (make) in
-            make.left.equalTo(placeImageView.snp.right).offset(15)
-            guard let view = superview else { return }
-            make.top.equalTo(view).offset(60)
-            make.bottom.equalTo(view).offset(60)
-            //make.bottom.equalTo(40)
+            make.leading.equalTo(placeImageView.snp.trailing).inset(-80)
+            make.centerY.equalTo(cellContentView.snp.centerY)
         }
         
     

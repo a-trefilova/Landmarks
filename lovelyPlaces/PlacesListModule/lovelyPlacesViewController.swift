@@ -15,20 +15,25 @@ protocol lovelyPlacesDisplayLogic: class {
 class lovelyPlacesViewController: UIViewController {
     let interactor: lovelyPlacesBusinessLogic
     var state: lovelyPlaces.ViewControllerState
-
+    
     private var rootView: lovelyPlacesView? {
         return view as? lovelyPlacesView
     }
+    
+    
     
     init(interactor: lovelyPlacesBusinessLogic, initialState: lovelyPlaces.ViewControllerState = .loading) {
         self.interactor = interactor
         self.state = initialState
         super.init(nibName: nil, bundle: nil)
+        
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
 
     // MARK: View lifecycle
     override func loadView() {
@@ -38,27 +43,27 @@ class lovelyPlacesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationController?.navigationBar.topItem?.title = "Landmarks"
         rootView?.tableView.register(ListCell.self, forCellReuseIdentifier: ListCell.reuseId)
         rootView?.tableView.dataSource = self
         rootView?.tableView.delegate = self
-        //rootView?.switchSlider.delegate = self
         doSomething()
-        
-        //when switch is on, CALL CHANGE FAVS 
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
 
     // MARK: Do something
     func doSomething() {
         let request = lovelyPlaces.Something.Request()
-        interactor.doSomething(request: request)
+        interactor.doSomething(request: request, isFav: rootView!.observer.isOn)
+       
     }
     
-    func changeFavs(isOn: Bool) {
-        let request = lovelyPlaces.Something.Request()
-        interactor.changeFavs(request: request, isFav: isOn)
-        
-    }
+    
 }
 
 extension lovelyPlacesViewController: lovelyPlacesDisplayLogic {
@@ -74,7 +79,7 @@ extension lovelyPlacesViewController: lovelyPlacesDisplayLogic {
         case let .error(message):
             print("error \(message)")
         case let .result(items):
-            //UPDATE VIEW 
+            rootView?.tableView.reloadData()
             print("result: \(items)")
         case .emptyResult:
             print("empty result")
@@ -117,5 +122,34 @@ extension lovelyPlacesViewController: UITableViewDataSource, UITableViewDelegate
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let router = Router(builder: PlaceMapBuilder())
+        
+       
+        //datastore.models
+        
+        switch state {
+       
+        case .loading:
+            print("")
+        case .result(let viewModel):
+//
+//            navigationController?.pushViewController(router.presentViewController(), animated: true)
+            var datastore = PlaceMapDataStore()
+            datastore.models = viewModel[indexPath.row]
+            let presenter = PlaceMapPresenter()
+            let provider = PlaceMapProvider(dataStore: datastore)
+            let interactor = PlaceMapInteractor(presenter: presenter, provider: provider)
+            let controller = PlaceMapViewController(interactor: interactor)
+            presenter.viewController = controller
+            navigationController?.pushViewController(controller, animated: true)
+            
+        case .emptyResult:
+            print("")
+        case .error(message: let message):
+            print("")
+        }
+    }
 }
+

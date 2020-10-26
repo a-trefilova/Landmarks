@@ -21,38 +21,80 @@ class lovelyPlacesView: UIView {
         let tableView = UITableView(frame: CGRect.zero,
                                     style: .plain)
         tableView.separatorInset = .init(top: 0, left: 20, bottom: 0, right: 0)
+        
         return tableView
     } ()
     
-    let headerView: UITableViewHeaderFooterView = {
-        let header = UITableViewHeaderFooterView()
-        header.textLabel?.text = "Favourites only"
-        header.textLabel?.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        return header
+    let containerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.clipsToBounds = true
+        view.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 60)
+        
+        return view
     }()
     
-    let switchSlider: UISwitch = {
-        let switchSlider = UISwitch()
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "Apple SD Gothic Neo Bold", size: 20)
+        label.numberOfLines = 1
+        label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        label.text = "Favourites only"
+        return label
+    }()
+    
+    let switchSlider: CustomSwitch = {
+        let switchSlider = CustomSwitch()
         switchSlider.setOn(false, animated: false)
         return switchSlider
     }()
-
+    
+    let observer = Observer()
+    
     override init(frame: CGRect = CGRect.zero) {
         super.init(frame: frame)
-        tableView.tableHeaderView = headerView
-        self.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
         addSubviews()
         makeConstraints()
+        switchSlider.addTarget(self, action: #selector(switchedOn), for: .valueChanged)
+        switchSlider.add(observer: observer)
     }
 
+    @objc func switchedOn() {
+        switchSlider.notify(bool: switchSlider.isOn)
+        
+        print("ON!")
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    //DOESNT WORK
+    func drawSeparators() {
+        let frame = CGRect(x: 0, y: containerView.frame.size.height - 1, width: containerView.bounds.width, height: 1)
+        let separatorView = UIView(frame: frame)
+        separatorView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        containerView.addSubview(separatorView)
+        separatorView.snp.makeConstraints { (make) in
+            make.bottom.equalTo(containerView.snp.bottom)
+            make.leading.equalTo(containerView.snp.leading)
+            make.trailing.equalTo(containerView.snp.trailing)
+        }
     }
 
     func addSubviews(){
         addSubview(tableView)
+        //addSubview(containerView)
         
-        tableView.tableHeaderView?.addSubview(switchSlider)
+        tableView.tableHeaderView = containerView
+        containerView.addSubview(titleLabel)
+        containerView.addSubview(switchSlider)
+        drawSeparators()
+//        headerView.addSubview(titleLabel)
+//        headerView.addSubview(switchSlider)
+        
     }
 
     func makeConstraints() {
@@ -63,8 +105,26 @@ class lovelyPlacesView: UIView {
             make.bottom.equalToSuperview()
         }
         
-        switchSlider.snp.makeConstraints { (make) in
+        containerView.snp.makeConstraints { (make) in
+            make.top.equalToSuperview()
+            make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
+            //make.bottom.equalToSuperview()
+            make.height.equalTo(44)
+            make.width.equalToSuperview()
+           // make.centerX.equalToSuperview()
+        }
+
+        
+        titleLabel.snp.makeConstraints { (make) in
+            make.leading.equalTo(containerView.snp.leading).offset(20)
+            make.centerY.equalTo(containerView.snp.centerY)
+            
+        }
+
+        switchSlider.snp.makeConstraints { (make) in
+            make.trailing.equalTo(containerView.snp.trailing).offset(-20)
+            make.centerY.equalTo(containerView.snp.centerY)
         }
         
         
@@ -72,21 +132,41 @@ class lovelyPlacesView: UIView {
 }
 
 
+protocol ChangeOfswitchValue {
+    func add(observer: PropertyObserver)
+    func remove(observer: PropertyObserver)
+    func notify(bool: Bool)
+}
 
+protocol PropertyObserver {
+    func didGet(boolValue value: Bool)
+}
 
-class CustomCell: UICollectionViewCell {
+class CustomSwitch: UISwitch, ChangeOfswitchValue {
     
-    static let reuseId: String = "CustomCell"
-    private let defaultPlaceModel = lovelyPlacesModel(id: 1, name: "LOEW", category: .featured, city: "OGANA", state: "Open", park: "Fl", coordinates: Coordinates(longitude: 0.1, latitude: 10.3), imageName: "None", isFavorite: true)
-    var dataSourceItem: lovelyPlacesModel?
+    var observerCollection = NSMutableSet()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        dataSourceItem = defaultPlaceModel
+    func add(observer: PropertyObserver) {
+        observerCollection.add(observer)
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    func remove(observer: PropertyObserver) {
+        observerCollection.remove(observer)
+    }
+    
+    func notify(bool: Bool) {
+        for observer in observerCollection {
+            (observer as! PropertyObserver).didGet(boolValue: bool)
+        }
+    }
+}
+
+class Observer: NSObject, PropertyObserver {
+    
+    var isOn: Bool = false
+    
+    func didGet(boolValue value: Bool) {
+        isOn = value
     }
     
     

@@ -10,7 +10,7 @@ import UIKit
 
 
 //in original arch this class is sublclass of some ModuleBuilder
-class lovelyPlacesBuilder {
+class lovelyPlacesBuilder: ModuleBuilder {
 
     var initialState: lovelyPlaces.ViewControllerState?
 

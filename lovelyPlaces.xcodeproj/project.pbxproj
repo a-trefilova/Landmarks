@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		D6071E5A25433C4800790E0F /* LovelyPlacesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6071E5925433C4800790E0F /* LovelyPlacesListCell.swift */; };
+		D634631C2546C49E0075F363 /* PlaceMapBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D634631B2546C49E0075F363 /* PlaceMapBuilder.swift */; };
+		D634631E2546C4B30075F363 /* PlaceMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D634631D2546C4B30075F363 /* PlaceMapViewController.swift */; };
+		D63463202546C4BB0075F363 /* PlaceMapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D634631F2546C4BB0075F363 /* PlaceMapInteractor.swift */; };
+		D63463222546C4C60075F363 /* PlaceMapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63463212546C4C60075F363 /* PlaceMapPresenter.swift */; };
+		D63463242546C4D10075F363 /* PlaceMapProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63463232546C4D10075F363 /* PlaceMapProvider.swift */; };
+		D63463262546C4DA0075F363 /* PlaceMapDataFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63463252546C4DA0075F363 /* PlaceMapDataFlow.swift */; };
+		D63463282546C5050075F363 /* PlaceMapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63463272546C5050075F363 /* PlaceMapService.swift */; };
+		D634632A2546C51B0075F363 /* PlaceMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63463292546C51B0075F363 /* PlaceMapView.swift */; };
+		D634632E2546C6B20075F363 /* PlaceMapDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D634632D2546C6B20075F363 /* PlaceMapDataStore.swift */; };
+		D63463302546C8D80075F363 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = D634632F2546C8D80075F363 /* Router.swift */; };
 		D68D1840254184690026CA0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D183F254184690026CA0F /* AppDelegate.swift */; };
 		D68D1842254184690026CA0F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D1841254184690026CA0F /* SceneDelegate.swift */; };
 		D68D1849254184690026CA0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D68D1848254184690026CA0F /* Assets.xcassets */; };
@@ -28,6 +38,16 @@
 
 /* Begin PBXFileReference section */
 		D6071E5925433C4800790E0F /* LovelyPlacesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LovelyPlacesListCell.swift; sourceTree = "<group>"; };
+		D634631B2546C49E0075F363 /* PlaceMapBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMapBuilder.swift; sourceTree = "<group>"; };
+		D634631D2546C4B30075F363 /* PlaceMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMapViewController.swift; sourceTree = "<group>"; };
+		D634631F2546C4BB0075F363 /* PlaceMapInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMapInteractor.swift; sourceTree = "<group>"; };
+		D63463212546C4C60075F363 /* PlaceMapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMapPresenter.swift; sourceTree = "<group>"; };
+		D63463232546C4D10075F363 /* PlaceMapProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMapProvider.swift; sourceTree = "<group>"; };
+		D63463252546C4DA0075F363 /* PlaceMapDataFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMapDataFlow.swift; sourceTree = "<group>"; };
+		D63463272546C5050075F363 /* PlaceMapService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMapService.swift; sourceTree = "<group>"; };
+		D63463292546C51B0075F363 /* PlaceMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMapView.swift; sourceTree = "<group>"; };
+		D634632D2546C6B20075F363 /* PlaceMapDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMapDataStore.swift; sourceTree = "<group>"; };
+		D634632F2546C8D80075F363 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		D68D183C254184690026CA0F /* lovelyPlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lovelyPlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D68D183F254184690026CA0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D68D1841254184690026CA0F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +95,22 @@
 			path = PlacesListModule;
 			sourceTree = "<group>";
 		};
+		D634631A2546C31F0075F363 /* PlaceMapModule */ = {
+			isa = PBXGroup;
+			children = (
+				D63463292546C51B0075F363 /* PlaceMapView.swift */,
+				D634631D2546C4B30075F363 /* PlaceMapViewController.swift */,
+				D634631F2546C4BB0075F363 /* PlaceMapInteractor.swift */,
+				D634631B2546C49E0075F363 /* PlaceMapBuilder.swift */,
+				D63463212546C4C60075F363 /* PlaceMapPresenter.swift */,
+				D634632D2546C6B20075F363 /* PlaceMapDataStore.swift */,
+				D63463232546C4D10075F363 /* PlaceMapProvider.swift */,
+				D63463252546C4DA0075F363 /* PlaceMapDataFlow.swift */,
+				D63463272546C5050075F363 /* PlaceMapService.swift */,
+			);
+			path = PlaceMapModule;
+			sourceTree = "<group>";
+		};
 		D68D1833254184690026CA0F = {
 			isa = PBXGroup;
 			children = (
@@ -100,8 +136,10 @@
 				D68D1848254184690026CA0F /* Assets.xcassets */,
 				D68D184A254184690026CA0F /* LaunchScreen.storyboard */,
 				D68D184D254184690026CA0F /* Info.plist */,
+				D634631A2546C31F0075F363 /* PlaceMapModule */,
 				D6071E582543395C00790E0F /* PlacesListModule */,
 				D68D186A2541A7C40026CA0F /* Sources */,
+				D634632F2546C8D80075F363 /* Router.swift */,
 			);
 			path = lovelyPlaces;
 			sourceTree = "<group>";
@@ -245,15 +283,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				D68D185A254185490026CA0F /* lovelyPlacesProvider.swift in Sources */,
+				D634632E2546C6B20075F363 /* PlaceMapDataStore.swift in Sources */,
+				D63463222546C4C60075F363 /* PlaceMapPresenter.swift in Sources */,
+				D63463202546C4BB0075F363 /* PlaceMapInteractor.swift in Sources */,
+				D63463242546C4D10075F363 /* PlaceMapProvider.swift in Sources */,
 				D68D1840254184690026CA0F /* AppDelegate.swift in Sources */,
 				D68D1854254184870026CA0F /* lovelyPlacesModel.swift in Sources */,
 				D68D185C2541879A0026CA0F /* lovelyPlacesService.swift in Sources */,
 				D68D1858254184FD0026CA0F /* lovelyPlacesDataStore.swift in Sources */,
+				D634632A2546C51B0075F363 /* PlaceMapView.swift in Sources */,
+				D63463262546C4DA0075F363 /* PlaceMapDataFlow.swift in Sources */,
 				D68D1842254184690026CA0F /* SceneDelegate.swift in Sources */,
 				D68D185F254187F40026CA0F /* lovelyPlacesView.swift in Sources */,
 				D68D1869254189C00026CA0F /* lovelyPlacesViewController.swift in Sources */,
+				D63463282546C5050075F363 /* PlaceMapService.swift in Sources */,
+				D63463302546C8D80075F363 /* Router.swift in Sources */,
+				D634631C2546C49E0075F363 /* PlaceMapBuilder.swift in Sources */,
 				D68D18632541889F0026CA0F /* lovelyPlacesDataFlow.swift in Sources */,
 				D68D1867254189610026CA0F /* lovelyPlacesPresenter.swift in Sources */,
+				D634631E2546C4B30075F363 /* PlaceMapViewController.swift in Sources */,
 				D68D1861254188410026CA0F /* lovelyPlacesBuilder.swift in Sources */,
 				D68D1865254188EA0026CA0F /* lovelyPlacesInteractor.swift in Sources */,
 				D6071E5A25433C4800790E0F /* LovelyPlacesListCell.swift in Sources */,
