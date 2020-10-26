@@ -34,7 +34,12 @@ class PlaceMapView: UIView {
     var imageContainer: UIView = {
         let view = UIView()
         view.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        view.clipsToBounds = false
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.5
+        view.layer.shadowRadius = 10
+        view.layer.shadowOffset = .zero
         return view
     }()
     
@@ -79,10 +84,18 @@ class PlaceMapView: UIView {
     
     override init(frame: CGRect = CGRect.zero) {
         super.init(frame: frame)
+        landmarkImageView.layer.cornerRadius = UIScreen.main.bounds.width * 0.5 / 2
+        imageContainer.layer.cornerRadius = UIScreen.main.bounds.width * 0.5 / 2
+        landmarkImageView.makeRounded()
+        
+        
+
         backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         addSubviews()
         makeConstraints()
     }
+    
+    
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -106,6 +119,7 @@ class PlaceMapView: UIView {
     }
 
     func makeConstraints() {
+        //CNSTRNTS OF MAIN VIEW
         screenContainerView.snp.makeConstraints { (make) in
             make.top.equalToSuperview()
             make.leading.equalToSuperview()
@@ -114,7 +128,7 @@ class PlaceMapView: UIView {
         }
         
         
-        
+        //CNSTRNTS OF MAP
         mapContainer.snp.makeConstraints { (make) in
             make.top.equalTo(screenContainerView)
             make.leading.equalTo(screenContainerView)
@@ -126,6 +140,8 @@ class PlaceMapView: UIView {
             make.edges.equalTo(mapContainer)
         }
         
+        
+        //CNSTRNTS OF LABELS
         labelContainer.snp.makeConstraints { (make) in
             make.leading.equalTo(mapContainer.snp.leading).offset(20)
             make.top.equalTo(mapContainer.snp.bottom).offset(100)
@@ -147,17 +163,19 @@ class PlaceMapView: UIView {
         
         stateLabel.snp.makeConstraints { (make) in
             make.trailing.equalTo(labelContainer.snp.trailing)
-            //make.bottom.equalTo(labelContainer.snp.bottom)
-            make.top.equalTo(labelContainer.snp.top).offset(20)
-            
+            make.bottom.equalTo(labelContainer.snp.bottom)
+            //make.top.equalTo(labelContainer.snp.top).offset(20)
+            make.leading.equalTo(descripionLabel.snp.trailing)
         }
         
+        //CNSTRNTS OF IMAGE
         imageContainer.snp.makeConstraints { (make) in
             make.centerX.equalTo(screenContainerView.snp.centerX)
             make.centerY.equalTo(mapContainer.snp.bottom)
-            make.width.equalTo(150)
-            make.height.equalTo(150)
-              }
+            make.width.equalTo(mapContainer.snp.width).multipliedBy(0.5)
+            make.height.equalTo(mapContainer.snp.width).multipliedBy(0.5)
+            
+        }
         
         landmarkImageView.snp.makeConstraints { (make) in
             make.edges.equalTo(imageContainer)
@@ -168,8 +186,29 @@ class PlaceMapView: UIView {
     func setState(state: lovelyPlacesModel) {
         mapView.setRegion(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: state.coordinates.latitude, longitude: state.coordinates.longitude), latitudinalMeters: 5000, longitudinalMeters: 5000), animated: false)
         landmarkImageView.image = UIImage(named: state.imageName)
+        
+        
+        
+        
         titleLabel.text = state.name
         descripionLabel.text = state.park
+        stateLabel.text = state.state
+        layoutIfNeeded()
+        //setNeedsDisplay()
     }
 }
 
+extension UIImageView {
+
+    func makeRounded() {
+
+        self.layer.borderWidth = 5
+        self.layer.masksToBounds = false
+        self.layer.borderColor = UIColor.white.cgColor
+        
+       
+        //self.
+        //self.layer.cornerRadius = self.frame.height / 2
+        self.clipsToBounds = true
+    }
+}

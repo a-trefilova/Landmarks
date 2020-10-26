@@ -12,7 +12,7 @@ class ListCell: UITableViewCell {
     
     private let placeImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.layer.cornerRadius = imageView.bounds.height / 2
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
         return imageView
     }()
@@ -29,6 +29,7 @@ class ListCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         accessoryType = .disclosureIndicator
+        placeImageView.layer.cornerRadius = 30
         setUpSubViews()
         setUpConstraints()
     }
@@ -48,7 +49,7 @@ class ListCell: UITableViewCell {
     }
     
     private func setUpConstraints() {
-            cellContentView.snp.makeConstraints { (make) in
+        cellContentView.snp.makeConstraints { (make) in
             make.top.equalToSuperview()
             make.bottom.equalToSuperview()
             make.leading.equalToSuperview()

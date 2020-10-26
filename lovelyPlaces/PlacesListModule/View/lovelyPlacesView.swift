@@ -61,7 +61,6 @@ class lovelyPlacesView: UIView {
     }
 
     @objc func switchedOn() {
-        //switchSlider.notify(bool: switchSlider.isOn)
         switchSlider.sendState()
         print("ON!")
     }
