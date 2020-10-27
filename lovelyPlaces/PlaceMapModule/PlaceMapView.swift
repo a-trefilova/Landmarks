@@ -88,7 +88,6 @@ class PlaceMapView: UIView {
         imageContainer.layer.cornerRadius = UIScreen.main.bounds.width * 0.5 / 2
         landmarkImageView.makeRounded()
         
-        
 
         backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         addSubviews()
@@ -190,7 +189,8 @@ class PlaceMapView: UIView {
         
         
         
-        titleLabel.text = state.name
+        let attrString = NSMutableAttributedString()
+        titleLabel.attributedText = attrString.addStarToFavourite(string: state.name, isFav: state.isFavorite)
         descripionLabel.text = state.park
         stateLabel.text = state.state
         layoutIfNeeded()

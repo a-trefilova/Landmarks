@@ -36,8 +36,8 @@ class ListCell: UITableViewCell {
     
     
     func setState(viewModel: lovelyPlacesModel) {
-
-        titleLabel.text = viewModel.name
+       let attributedString = NSMutableAttributedString()
+        titleLabel.attributedText = attributedString.addStarToFavourite(string: viewModel.name, isFav: viewModel.isFavorite)
         imageView?.image = UIImage(named: viewModel.imageName)
     }
     
@@ -81,4 +81,24 @@ class ListCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+}
+
+extension NSMutableAttributedString {
+    
+    func addStarToFavourite(string: String, isFav: Bool) -> NSMutableAttributedString {
+        
+        let attributedString = NSMutableAttributedString(string: string)
+        guard let starImage = UIImage(systemName: "star.fill") else { return attributedString }
+        let attachment = NSTextAttachment(image: starImage)
+        let imageString = NSAttributedString(attachment:attachment)
+        
+        if isFav {
+            attributedString.append(imageString)
+            attributedString.addAttribute(.foregroundColor,
+                                          value: UIColor.orange,
+                                          range: NSRange(location: attributedString.length - 1, length: 1))
+        }
+        
+        return attributedString
+    }
 }
