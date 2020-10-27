@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct listPlacesViewModel {
-    var places: [lovelyPlacesModel]
+struct LandmarkListViewModel {
+    var places: [LandmarkModel]
     var isFavouriteSwitchedOn: Bool
 }
 
 /// Модель данных, описывающая ...
-struct lovelyPlacesModel: Codable {
+struct LandmarkModel: Codable {
     // Example
     let id: Int
     let name: String
@@ -28,8 +28,8 @@ struct lovelyPlacesModel: Codable {
     
 }
 
-extension lovelyPlacesModel: Equatable {
-    static func == (lhs: lovelyPlacesModel, rhs: lovelyPlacesModel) -> Bool {
+extension LandmarkModel: Equatable {
+    static func == (lhs: LandmarkModel, rhs: LandmarkModel) -> Bool {
         return lhs.id == rhs.id
     }
 }

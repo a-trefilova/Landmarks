@@ -6,24 +6,24 @@
 //  Copyright © 2020 Alyona Sabitskaya . All rights reserved.
 //
 
-protocol lovelyPlacesBusinessLogic {
-    func doSomething(request: lovelyPlaces.Something.Request, isFav: Bool)
+protocol LandmarkListBusinessLogic {
+    func doSomething(request: LandmarkList.Something.Request, isFav: Bool)
 }
 
 /// Класс для описания бизнес-логики модуля places
-class lovelyPlacesInteractor: lovelyPlacesBusinessLogic {
-    let presenter: lovelyPlacesPresentationLogic
-    let provider: lovelyPlacesProviderProtocol
+class LandmarkListInteractor: LandmarkListBusinessLogic {
+    let presenter: LandmarkListPresentationLogic
+    let provider: LandmarkListProviderProtocol
 
-    init(presenter: lovelyPlacesPresentationLogic, provider: lovelyPlacesProviderProtocol = lovelyPlacesProvider()) {
+    init(presenter: LandmarkListPresentationLogic, provider: LandmarkListProviderProtocol = LandmarkListProvider()) {
         self.presenter = presenter
         self.provider = provider
     }
     
     // MARK: Do something
-    func doSomething(request: lovelyPlaces.Something.Request, isFav: Bool) {
+    func doSomething(request: LandmarkList.Something.Request, isFav: Bool) {
         provider.getItems { (items, error) in
-            let result: lovelyPlaces.lovelyPlacesRequestResult
+            let result: LandmarkList.LandmarkListRequestResult
             if let items = items {
                 if isFav {
                     var array = items
@@ -42,7 +42,7 @@ class lovelyPlacesInteractor: lovelyPlacesBusinessLogic {
             } else {
                 result = .failure(.someError(message: "No Data"))
             }
-            self.presenter.presentSomething(response: lovelyPlaces.Something.Response(result: result))
+            self.presenter.presentSomething(response: LandmarkList.Something.Response(result: result))
             
         }
     }

@@ -10,19 +10,19 @@ import UIKit
 
 
 //in original arch this class is sublclass of some ModuleBuilder
-class lovelyPlacesBuilder: ModuleBuilder {
+class LandmarkListBuilder: ModuleBuilder {
 
-    var initialState: lovelyPlaces.ViewControllerState?
+    var initialState: LandmarkList.ViewControllerState?
 
-    func set(initialState: lovelyPlaces.ViewControllerState) -> lovelyPlacesBuilder {
+    func set(initialState: LandmarkList.ViewControllerState) -> LandmarkListBuilder {
         self.initialState = initialState
         return self
     }
 
     func build() -> UIViewController {
-        let presenter = lovelyPlacesPresenter()
-        let interactor = lovelyPlacesInteractor(presenter: presenter)
-        let controller = lovelyPlacesViewController(interactor: interactor)
+        let presenter = LandmarkListPresenter()
+        let interactor = LandmarkListInteractor(presenter: presenter)
+        let controller = LandmarkListViewController(interactor: interactor)
 
         presenter.viewController = controller
         return controller

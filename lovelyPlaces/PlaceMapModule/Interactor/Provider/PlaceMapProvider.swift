@@ -1,5 +1,5 @@
 protocol PlaceMapProviderProtocol {
-    func getItems(completion: @escaping (lovelyPlacesModel?, PlaceMapProviderError?) -> Void)
+    func getItems(completion: @escaping (LandmarkModel?, PlaceMapProviderError?) -> Void)
 }
 
 enum PlaceMapProviderError: Error {
@@ -16,7 +16,7 @@ struct PlaceMapProvider: PlaceMapProviderProtocol {
         self.service = service
     }
 
-    func getItems(completion: @escaping (lovelyPlacesModel?, PlaceMapProviderError?) -> Void) {
+    func getItems(completion: @escaping (LandmarkModel?, PlaceMapProviderError?) -> Void) {
         if dataStore.models?.id != 0 {
             return completion(self.dataStore.models, nil)
         }

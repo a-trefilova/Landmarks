@@ -1,7 +1,7 @@
 import UIKit
 import SnapKit
 
-class ListCell: UITableViewCell {
+class LandmarkListCell: UITableViewCell {
     
     static let reuseId: String = "ListCell"
     
@@ -12,11 +12,11 @@ class ListCell: UITableViewCell {
     
     private let heightForCell: CGFloat = 60
     private let heightForImage: CGFloat = 50
-    var imageContainer: UIView = {
+    
+    private let imageContainer: UIView = {
         let view = UIView()
         view.clipsToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
-        //view.layer.cornerRadius = 30
         return view
     }()
     
@@ -24,30 +24,24 @@ class ListCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
-        //imageView.layer.cornerRadius = 30
         return imageView
     }()
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Apple SD Gothic Neo Bold", size: 20)
-        return label
+        return label.setFontAndSize(size: 20)
     }()
-    
-   
-    
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         accessoryType = .disclosureIndicator
-        imageContainer.layer.cornerRadius = 25
-        //placeImageView.layer.cornerRadius = placeImageView.frame.size.width / 2.0
+        imageContainer.layer.cornerRadius = heightForImage / 2
         setUpSubViews()
         setUpConstraints()
     }
     
     
-    func setState(viewModel: lovelyPlacesModel) {
+    func setState(viewModel: LandmarkModel) {
        let attributedString = NSMutableAttributedString()
         titleLabel.attributedText = attributedString.addStarToFavourite(string: viewModel.name, isFav: viewModel.isFavorite)
         placeImageView.image = UIImage(named: viewModel.imageName)

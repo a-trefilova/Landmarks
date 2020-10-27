@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D6071E5A25433C4800790E0F /* LovelyPlacesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6071E5925433C4800790E0F /* LovelyPlacesListCell.swift */; };
+		D6071E5A25433C4800790E0F /* LandmarkListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6071E5925433C4800790E0F /* LandmarkListCell.swift */; };
 		D634631C2546C49E0075F363 /* PlaceMapBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D634631B2546C49E0075F363 /* PlaceMapBuilder.swift */; };
 		D634631E2546C4B30075F363 /* PlaceMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D634631D2546C4B30075F363 /* PlaceMapViewController.swift */; };
 		D63463202546C4BB0075F363 /* PlaceMapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D634631F2546C4BB0075F363 /* PlaceMapInteractor.swift */; };
@@ -22,22 +22,22 @@
 		D68D1842254184690026CA0F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D1841254184690026CA0F /* SceneDelegate.swift */; };
 		D68D1849254184690026CA0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D68D1848254184690026CA0F /* Assets.xcassets */; };
 		D68D184C254184690026CA0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D68D184A254184690026CA0F /* LaunchScreen.storyboard */; };
-		D68D1854254184870026CA0F /* lovelyPlacesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D1853254184870026CA0F /* lovelyPlacesModel.swift */; };
-		D68D1858254184FD0026CA0F /* lovelyPlacesDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D1857254184FD0026CA0F /* lovelyPlacesDataStore.swift */; };
-		D68D185A254185490026CA0F /* lovelyPlacesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D1859254185490026CA0F /* lovelyPlacesProvider.swift */; };
-		D68D185C2541879A0026CA0F /* lovelyPlacesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D185B2541879A0026CA0F /* lovelyPlacesService.swift */; };
-		D68D185F254187F40026CA0F /* lovelyPlacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D185E254187F40026CA0F /* lovelyPlacesView.swift */; };
-		D68D1861254188410026CA0F /* lovelyPlacesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D1860254188410026CA0F /* lovelyPlacesBuilder.swift */; };
-		D68D18632541889F0026CA0F /* lovelyPlacesDataFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D18622541889F0026CA0F /* lovelyPlacesDataFlow.swift */; };
-		D68D1865254188EA0026CA0F /* lovelyPlacesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D1864254188EA0026CA0F /* lovelyPlacesInteractor.swift */; };
-		D68D1867254189610026CA0F /* lovelyPlacesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D1866254189610026CA0F /* lovelyPlacesPresenter.swift */; };
-		D68D1869254189C00026CA0F /* lovelyPlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D1868254189C00026CA0F /* lovelyPlacesViewController.swift */; };
+		D68D1854254184870026CA0F /* LandmarkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D1853254184870026CA0F /* LandmarkModel.swift */; };
+		D68D1858254184FD0026CA0F /* LandmarkDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D1857254184FD0026CA0F /* LandmarkDataStore.swift */; };
+		D68D185A254185490026CA0F /* LandmarkListProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D1859254185490026CA0F /* LandmarkListProvider.swift */; };
+		D68D185C2541879A0026CA0F /* LandmarkListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D185B2541879A0026CA0F /* LandmarkListService.swift */; };
+		D68D185F254187F40026CA0F /* LandmarkListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D185E254187F40026CA0F /* LandmarkListView.swift */; };
+		D68D1861254188410026CA0F /* LandmarkListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D1860254188410026CA0F /* LandmarkListBuilder.swift */; };
+		D68D18632541889F0026CA0F /* LandmarkListDataFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D18622541889F0026CA0F /* LandmarkListDataFlow.swift */; };
+		D68D1865254188EA0026CA0F /* LandmarkListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D1864254188EA0026CA0F /* LandmarkListInteractor.swift */; };
+		D68D1867254189610026CA0F /* LandmarkListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D1866254189610026CA0F /* LandmarkListPresenter.swift */; };
+		D68D1869254189C00026CA0F /* LandmarkListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D1868254189C00026CA0F /* LandmarkListViewController.swift */; };
 		D68D186C2541A7D30026CA0F /* landmarkData.json in Resources */ = {isa = PBXBuildFile; fileRef = D68D186B2541A7D20026CA0F /* landmarkData.json */; };
 		D68D18702541D8FB0026CA0F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D68D186F2541D8FB0026CA0F /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D6071E5925433C4800790E0F /* LovelyPlacesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LovelyPlacesListCell.swift; sourceTree = "<group>"; };
+		D6071E5925433C4800790E0F /* LandmarkListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkListCell.swift; sourceTree = "<group>"; };
 		D634631B2546C49E0075F363 /* PlaceMapBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMapBuilder.swift; sourceTree = "<group>"; };
 		D634631D2546C4B30075F363 /* PlaceMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMapViewController.swift; sourceTree = "<group>"; };
 		D634631F2546C4BB0075F363 /* PlaceMapInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMapInteractor.swift; sourceTree = "<group>"; };
@@ -54,16 +54,16 @@
 		D68D1848254184690026CA0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D68D184B254184690026CA0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D68D184D254184690026CA0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D68D1853254184870026CA0F /* lovelyPlacesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lovelyPlacesModel.swift; sourceTree = "<group>"; };
-		D68D1857254184FD0026CA0F /* lovelyPlacesDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lovelyPlacesDataStore.swift; sourceTree = "<group>"; };
-		D68D1859254185490026CA0F /* lovelyPlacesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lovelyPlacesProvider.swift; sourceTree = "<group>"; };
-		D68D185B2541879A0026CA0F /* lovelyPlacesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lovelyPlacesService.swift; sourceTree = "<group>"; };
-		D68D185E254187F40026CA0F /* lovelyPlacesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lovelyPlacesView.swift; sourceTree = "<group>"; };
-		D68D1860254188410026CA0F /* lovelyPlacesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lovelyPlacesBuilder.swift; sourceTree = "<group>"; };
-		D68D18622541889F0026CA0F /* lovelyPlacesDataFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lovelyPlacesDataFlow.swift; sourceTree = "<group>"; };
-		D68D1864254188EA0026CA0F /* lovelyPlacesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lovelyPlacesInteractor.swift; sourceTree = "<group>"; };
-		D68D1866254189610026CA0F /* lovelyPlacesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lovelyPlacesPresenter.swift; sourceTree = "<group>"; };
-		D68D1868254189C00026CA0F /* lovelyPlacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lovelyPlacesViewController.swift; sourceTree = "<group>"; };
+		D68D1853254184870026CA0F /* LandmarkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkModel.swift; sourceTree = "<group>"; };
+		D68D1857254184FD0026CA0F /* LandmarkDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkDataStore.swift; sourceTree = "<group>"; };
+		D68D1859254185490026CA0F /* LandmarkListProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkListProvider.swift; sourceTree = "<group>"; };
+		D68D185B2541879A0026CA0F /* LandmarkListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkListService.swift; sourceTree = "<group>"; };
+		D68D185E254187F40026CA0F /* LandmarkListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkListView.swift; sourceTree = "<group>"; };
+		D68D1860254188410026CA0F /* LandmarkListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkListBuilder.swift; sourceTree = "<group>"; };
+		D68D18622541889F0026CA0F /* LandmarkListDataFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkListDataFlow.swift; sourceTree = "<group>"; };
+		D68D1864254188EA0026CA0F /* LandmarkListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkListInteractor.swift; sourceTree = "<group>"; };
+		D68D1866254189610026CA0F /* LandmarkListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkListPresenter.swift; sourceTree = "<group>"; };
+		D68D1868254189C00026CA0F /* LandmarkListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkListViewController.swift; sourceTree = "<group>"; };
 		D68D186B2541A7D20026CA0F /* landmarkData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = landmarkData.json; sourceTree = "<group>"; };
 		D68D186E2541D8D00026CA0F /* SnapKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SnapKit; path = Carthage/Checkouts/SnapKit; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,14 +83,11 @@
 		D6071E582543395C00790E0F /* PlacesListModule */ = {
 			isa = PBXGroup;
 			children = (
-				D68D1868254189C00026CA0F /* lovelyPlacesViewController.swift */,
-				D68D185D254187EB0026CA0F /* View */,
-				D68D1856254184D10026CA0F /* Provider */,
-				D68D1855254184BF0026CA0F /* Model */,
-				D68D1860254188410026CA0F /* lovelyPlacesBuilder.swift */,
-				D68D18622541889F0026CA0F /* lovelyPlacesDataFlow.swift */,
-				D68D1864254188EA0026CA0F /* lovelyPlacesInteractor.swift */,
-				D68D1866254189610026CA0F /* lovelyPlacesPresenter.swift */,
+				D6F8441A254859DA007596A1 /* Presenter */,
+				D6F84419254859D2007596A1 /* Interactor */,
+				D6F84418254859C7007596A1 /* ViewController */,
+				D68D1860254188410026CA0F /* LandmarkListBuilder.swift */,
+				D68D18622541889F0026CA0F /* LandmarkListDataFlow.swift */,
 			);
 			path = PlacesListModule;
 			sourceTree = "<group>";
@@ -98,15 +95,11 @@
 		D634631A2546C31F0075F363 /* PlaceMapModule */ = {
 			isa = PBXGroup;
 			children = (
-				D63463292546C51B0075F363 /* PlaceMapView.swift */,
-				D634631D2546C4B30075F363 /* PlaceMapViewController.swift */,
-				D634631F2546C4BB0075F363 /* PlaceMapInteractor.swift */,
+				D6F84415254858BD007596A1 /* Presenter */,
+				D6F84414254858AE007596A1 /* Interactor */,
+				D6F84413254858A3007596A1 /* ViewController */,
 				D634631B2546C49E0075F363 /* PlaceMapBuilder.swift */,
-				D63463212546C4C60075F363 /* PlaceMapPresenter.swift */,
-				D634632D2546C6B20075F363 /* PlaceMapDataStore.swift */,
-				D63463232546C4D10075F363 /* PlaceMapProvider.swift */,
 				D63463252546C4DA0075F363 /* PlaceMapDataFlow.swift */,
-				D63463272546C5050075F363 /* PlaceMapService.swift */,
 			);
 			path = PlaceMapModule;
 			sourceTree = "<group>";
@@ -131,11 +124,7 @@
 		D68D183E254184690026CA0F /* lovelyPlaces */ = {
 			isa = PBXGroup;
 			children = (
-				D68D183F254184690026CA0F /* AppDelegate.swift */,
-				D68D1841254184690026CA0F /* SceneDelegate.swift */,
-				D68D1848254184690026CA0F /* Assets.xcassets */,
-				D68D184A254184690026CA0F /* LaunchScreen.storyboard */,
-				D68D184D254184690026CA0F /* Info.plist */,
+				D68D1855254184BF0026CA0F /* Model */,
 				D634631A2546C31F0075F363 /* PlaceMapModule */,
 				D6071E582543395C00790E0F /* PlacesListModule */,
 				D68D186A2541A7C40026CA0F /* Sources */,
@@ -147,7 +136,7 @@
 		D68D1855254184BF0026CA0F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D68D1853254184870026CA0F /* lovelyPlacesModel.swift */,
+				D68D1853254184870026CA0F /* LandmarkModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -155,9 +144,9 @@
 		D68D1856254184D10026CA0F /* Provider */ = {
 			isa = PBXGroup;
 			children = (
-				D68D1857254184FD0026CA0F /* lovelyPlacesDataStore.swift */,
-				D68D1859254185490026CA0F /* lovelyPlacesProvider.swift */,
-				D68D185B2541879A0026CA0F /* lovelyPlacesService.swift */,
+				D68D1857254184FD0026CA0F /* LandmarkDataStore.swift */,
+				D68D1859254185490026CA0F /* LandmarkListProvider.swift */,
+				D68D185B2541879A0026CA0F /* LandmarkListService.swift */,
 			);
 			path = Provider;
 			sourceTree = "<group>";
@@ -165,8 +154,8 @@
 		D68D185D254187EB0026CA0F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D68D185E254187F40026CA0F /* lovelyPlacesView.swift */,
-				D6071E5925433C4800790E0F /* LovelyPlacesListCell.swift */,
+				D68D185E254187F40026CA0F /* LandmarkListView.swift */,
+				D6071E5925433C4800790E0F /* LandmarkListCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -174,6 +163,11 @@
 		D68D186A2541A7C40026CA0F /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				D68D183F254184690026CA0F /* AppDelegate.swift */,
+				D68D1841254184690026CA0F /* SceneDelegate.swift */,
+				D68D1848254184690026CA0F /* Assets.xcassets */,
+				D68D184A254184690026CA0F /* LaunchScreen.storyboard */,
+				D68D184D254184690026CA0F /* Info.plist */,
 				D68D186B2541A7D20026CA0F /* landmarkData.json */,
 			);
 			path = Sources;
@@ -185,6 +179,76 @@
 				D68D186E2541D8D00026CA0F /* SnapKit */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D6F84413254858A3007596A1 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D634631D2546C4B30075F363 /* PlaceMapViewController.swift */,
+				D6F84417254859B1007596A1 /* View */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		D6F84414254858AE007596A1 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				D6F84416254858F9007596A1 /* Provider */,
+				D634631F2546C4BB0075F363 /* PlaceMapInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		D6F84415254858BD007596A1 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				D63463212546C4C60075F363 /* PlaceMapPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		D6F84416254858F9007596A1 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				D634632D2546C6B20075F363 /* PlaceMapDataStore.swift */,
+				D63463232546C4D10075F363 /* PlaceMapProvider.swift */,
+				D63463272546C5050075F363 /* PlaceMapService.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		D6F84417254859B1007596A1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D63463292546C51B0075F363 /* PlaceMapView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D6F84418254859C7007596A1 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D68D1868254189C00026CA0F /* LandmarkListViewController.swift */,
+				D68D185D254187EB0026CA0F /* View */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		D6F84419254859D2007596A1 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				D68D1864254188EA0026CA0F /* LandmarkListInteractor.swift */,
+				D68D1856254184D10026CA0F /* Provider */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		D6F8441A254859DA007596A1 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				D68D1866254189610026CA0F /* LandmarkListPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,29 +346,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D68D185A254185490026CA0F /* lovelyPlacesProvider.swift in Sources */,
+				D68D185A254185490026CA0F /* LandmarkListProvider.swift in Sources */,
 				D634632E2546C6B20075F363 /* PlaceMapDataStore.swift in Sources */,
 				D63463222546C4C60075F363 /* PlaceMapPresenter.swift in Sources */,
 				D63463202546C4BB0075F363 /* PlaceMapInteractor.swift in Sources */,
 				D63463242546C4D10075F363 /* PlaceMapProvider.swift in Sources */,
 				D68D1840254184690026CA0F /* AppDelegate.swift in Sources */,
-				D68D1854254184870026CA0F /* lovelyPlacesModel.swift in Sources */,
-				D68D185C2541879A0026CA0F /* lovelyPlacesService.swift in Sources */,
-				D68D1858254184FD0026CA0F /* lovelyPlacesDataStore.swift in Sources */,
+				D68D1854254184870026CA0F /* LandmarkModel.swift in Sources */,
+				D68D185C2541879A0026CA0F /* LandmarkListService.swift in Sources */,
+				D68D1858254184FD0026CA0F /* LandmarkDataStore.swift in Sources */,
 				D634632A2546C51B0075F363 /* PlaceMapView.swift in Sources */,
 				D63463262546C4DA0075F363 /* PlaceMapDataFlow.swift in Sources */,
 				D68D1842254184690026CA0F /* SceneDelegate.swift in Sources */,
-				D68D185F254187F40026CA0F /* lovelyPlacesView.swift in Sources */,
-				D68D1869254189C00026CA0F /* lovelyPlacesViewController.swift in Sources */,
+				D68D185F254187F40026CA0F /* LandmarkListView.swift in Sources */,
+				D68D1869254189C00026CA0F /* LandmarkListViewController.swift in Sources */,
 				D63463282546C5050075F363 /* PlaceMapService.swift in Sources */,
 				D63463302546C8D80075F363 /* Router.swift in Sources */,
 				D634631C2546C49E0075F363 /* PlaceMapBuilder.swift in Sources */,
-				D68D18632541889F0026CA0F /* lovelyPlacesDataFlow.swift in Sources */,
-				D68D1867254189610026CA0F /* lovelyPlacesPresenter.swift in Sources */,
+				D68D18632541889F0026CA0F /* LandmarkListDataFlow.swift in Sources */,
+				D68D1867254189610026CA0F /* LandmarkListPresenter.swift in Sources */,
 				D634631E2546C4B30075F363 /* PlaceMapViewController.swift in Sources */,
-				D68D1861254188410026CA0F /* lovelyPlacesBuilder.swift in Sources */,
-				D68D1865254188EA0026CA0F /* lovelyPlacesInteractor.swift in Sources */,
-				D6071E5A25433C4800790E0F /* LovelyPlacesListCell.swift in Sources */,
+				D68D1861254188410026CA0F /* LandmarkListBuilder.swift in Sources */,
+				D68D1865254188EA0026CA0F /* LandmarkListInteractor.swift in Sources */,
+				D6071E5A25433C4800790E0F /* LandmarkListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,7 +505,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = lovelyPlaces/Info.plist;
+				INFOPLIST_FILE = lovelyPlaces/Sources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -449,7 +513,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = gpower.lovelyPlaces;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -458,7 +522,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = lovelyPlaces/Info.plist;
+				INFOPLIST_FILE = lovelyPlaces/Sources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -466,7 +530,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = gpower.lovelyPlaces;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -17,12 +17,12 @@ enum PlaceMap {
 
     enum PlaceMapRequestResult {
         case failure(PlaceMapError)
-        case success(lovelyPlacesModel)
+        case success(LandmarkModel)
     }
 
     enum ViewControllerState {
         case loading
-        case result(lovelyPlacesModel)
+        case result(LandmarkModel)
         case emptyResult
         case error(message: String)
     }

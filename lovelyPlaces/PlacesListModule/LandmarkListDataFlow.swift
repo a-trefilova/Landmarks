@@ -6,14 +6,14 @@
 //  Copyright © 2020 Alyona Sabitskaya . All rights reserved.
 //
 
-enum lovelyPlaces {
+enum LandmarkList {
     // MARK: Use cases
     enum Something {
         struct Request {
         }
 
         struct Response {
-            var result: lovelyPlacesRequestResult
+            var result: LandmarkListRequestResult
         }
 
         struct ViewModel {
@@ -21,19 +21,19 @@ enum lovelyPlaces {
         }
     }
 
-    enum lovelyPlacesRequestResult {
-        case failure(lovelyPlacesError)
-        case success([lovelyPlacesModel])
+    enum LandmarkListRequestResult {
+        case failure(LandmarkListError)
+        case success([LandmarkModel])
     }
 
     enum ViewControllerState {
         case loading
-        case result([lovelyPlacesModel])
+        case result([LandmarkModel])
         case emptyResult
         case error(message: String)
     }
 
-    enum lovelyPlacesError: Error {
+    enum LandmarkListError: Error {
         case someError(message: String)
     }
 }

@@ -10,7 +10,8 @@ extension PlaceMapView {
 
 class PlaceMapView: UIView {
     let appearance = Appearance()
-
+    private let coefficientOfMultyply: CGFloat = 0.6
+    private var landmarkImageWidth: CGFloat!
     var screenContainerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -60,35 +61,25 @@ class PlaceMapView: UIView {
     
     var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Lao Sangam MN", size: 27)
-        label.numberOfLines = 1
-        label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        return label
+        return label.setFontAndSize(size: 27)
     }()
     
     var descripionLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Lao Sangam MN", size: 13)
-        label.numberOfLines = 1
-        label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        return label
+        return label.setFontAndSize(size: 13)
     }()
     
     var stateLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Lao Sangam MN", size: 13)
-        label.numberOfLines = 1
-        label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        return label
+        return label.setFontAndSize(size: 13)
     }()
     
     override init(frame: CGRect = CGRect.zero) {
         super.init(frame: frame)
-        landmarkImageView.layer.cornerRadius = UIScreen.main.bounds.width * 0.5 / 2
-        imageContainer.layer.cornerRadius = UIScreen.main.bounds.width * 0.5 / 2
-        landmarkImageView.makeRounded()
-        
-
+        landmarkImageWidth = UIScreen.main.bounds.width * coefficientOfMultyply
+        landmarkImageView.layer.cornerRadius = landmarkImageWidth / 2
+        imageContainer.layer.cornerRadius = landmarkImageWidth / 2
+        landmarkImageView.drawBorder()
         backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         addSubviews()
         makeConstraints()
@@ -132,7 +123,7 @@ class PlaceMapView: UIView {
             make.top.equalTo(screenContainerView)
             make.leading.equalTo(screenContainerView)
             make.trailing.equalTo(screenContainerView)
-            make.bottom.equalTo(screenContainerView.snp.centerY)
+            make.bottom.equalTo(screenContainerView.snp.centerY).offset(-75)
         }
         
         mapView.snp.makeConstraints { (make) in
@@ -143,9 +134,8 @@ class PlaceMapView: UIView {
         //CNSTRNTS OF LABELS
         labelContainer.snp.makeConstraints { (make) in
             make.leading.equalTo(mapContainer.snp.leading).offset(20)
-            make.top.equalTo(mapContainer.snp.bottom).offset(100)
+            make.top.equalTo(imageContainer.snp.bottom).offset(20)
             make.trailing.equalTo(mapContainer.snp.trailing).offset(-10)
-            //make.bottom.lessThanOrEqualTo(screenContainerView.snp.bottom).offset(-200)
             
         }
         
@@ -164,15 +154,15 @@ class PlaceMapView: UIView {
             make.trailing.equalTo(labelContainer.snp.trailing)
             make.bottom.equalTo(labelContainer.snp.bottom)
             //make.top.equalTo(labelContainer.snp.top).offset(20)
-            make.leading.equalTo(descripionLabel.snp.trailing)
+            //make.leading.equalTo(descripionLabel.snp.trailing)
         }
         
         //CNSTRNTS OF IMAGE
         imageContainer.snp.makeConstraints { (make) in
             make.centerX.equalTo(screenContainerView.snp.centerX)
             make.centerY.equalTo(mapContainer.snp.bottom)
-            make.width.equalTo(mapContainer.snp.width).multipliedBy(0.5)
-            make.height.equalTo(mapContainer.snp.width).multipliedBy(0.5)
+            make.width.equalTo(mapContainer.snp.width).multipliedBy(0.6)
+            make.height.equalTo(mapContainer.snp.width).multipliedBy(0.6)
             
         }
         
@@ -182,7 +172,7 @@ class PlaceMapView: UIView {
         
     }
     
-    func setState(state: lovelyPlacesModel) {
+    func setState(state: LandmarkModel) {
         mapView.setRegion(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: state.coordinates.latitude, longitude: state.coordinates.longitude), latitudinalMeters: 5000, longitudinalMeters: 5000), animated: false)
         landmarkImageView.image = UIImage(named: state.imageName)
         
@@ -194,21 +184,28 @@ class PlaceMapView: UIView {
         descripionLabel.text = state.park
         stateLabel.text = state.state
         layoutIfNeeded()
-        //setNeedsDisplay()
     }
 }
 
 extension UIImageView {
 
-    func makeRounded() {
+    func drawBorder() {
 
         self.layer.borderWidth = 5
         self.layer.masksToBounds = false
         self.layer.borderColor = UIColor.white.cgColor
-        
-       
-        //self.
-        //self.layer.cornerRadius = self.frame.height / 2
         self.clipsToBounds = true
     }
+}
+
+
+extension UILabel {
+    
+    func setFontAndSize(size: CGFloat) -> UILabel {
+        self.font = UIFont(name: "Lao Sangam MN", size: size)
+        self.numberOfLines = 1
+        self.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        return self
+    }
+    
 }

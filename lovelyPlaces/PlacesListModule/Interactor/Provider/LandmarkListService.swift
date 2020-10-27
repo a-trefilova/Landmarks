@@ -8,12 +8,12 @@
 
 import Foundation
 
-protocol lovelyPlacesServiceProtocol {
-    func fetchItems(completion: @escaping ([lovelyPlacesModel]?, Error?) -> Void)
+protocol LandmarkListServiceProtocol {
+    func fetchItems(completion: @escaping ([LandmarkModel]?, Error?) -> Void)
 }
 
 /// Получает данные для модуля lovelyPlaces
-class lovelyPlacesService: lovelyPlacesServiceProtocol {
+class LandmarkListService: LandmarkListServiceProtocol {
     
     private func readJsonFile(forName name: String) -> Data? {
         do {
@@ -29,10 +29,10 @@ class lovelyPlacesService: lovelyPlacesServiceProtocol {
         return nil
     }
     
-    private func parse(jsonData: Data) -> ([lovelyPlacesModel]?, Error?) {
+    private func parse(jsonData: Data) -> ([LandmarkModel]?, Error?) {
         do {
             
-            let decodedData = try JSONDecoder().decode([lovelyPlacesModel].self,
+            let decodedData = try JSONDecoder().decode([LandmarkModel].self,
                                                        from: jsonData)
             return(decodedData, nil)
         } catch let error {
@@ -42,7 +42,7 @@ class lovelyPlacesService: lovelyPlacesServiceProtocol {
     }
 
     
-    func fetchItems(completion: @escaping ([lovelyPlacesModel]?, Error?) -> Void) {
+    func fetchItems(completion: @escaping ([LandmarkModel]?, Error?) -> Void) {
         //completion(nil, nil)
         
         if let localData = self.readJsonFile(forName: "landmarkData") {

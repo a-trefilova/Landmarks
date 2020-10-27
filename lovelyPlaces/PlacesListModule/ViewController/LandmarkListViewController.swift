@@ -1,28 +1,21 @@
-//
-//  lovelyPlacesViewController.swift
-//  lovelyPlaces
-//
-//  Created by Alyona Sabitskaya  on 22.10.2020.
-//  Copyright © 2020 Alyona Sabitskaya . All rights reserved.
-//
 
 import UIKit
 
-protocol lovelyPlacesDisplayLogic: class {
-    func displaySomething(viewModel: lovelyPlaces.Something.ViewModel)
+protocol LandmarkListDisplayLogic: class {
+    func displaySomething(viewModel: LandmarkList.Something.ViewModel)
 }
 
-class lovelyPlacesViewController: UIViewController {
-    let interactor: lovelyPlacesBusinessLogic
-    var state: lovelyPlaces.ViewControllerState
+class LandmarkListViewController: UIViewController {
+    let interactor: LandmarkListBusinessLogic
+    var state: LandmarkList.ViewControllerState
     
-    private var rootView: lovelyPlacesView? {
-        return view as? lovelyPlacesView
+    private var rootView: LandmarkListView? {
+        return view as? LandmarkListView
     }
     
     
     
-    init(interactor: lovelyPlacesBusinessLogic, initialState: lovelyPlaces.ViewControllerState = .loading) {
+    init(interactor: LandmarkListBusinessLogic, initialState: LandmarkList.ViewControllerState = .loading) {
         self.interactor = interactor
         self.state = initialState
         super.init(nibName: nil, bundle: nil)
@@ -37,14 +30,13 @@ class lovelyPlacesViewController: UIViewController {
 
     // MARK: View lifecycle
     override func loadView() {
-       view = lovelyPlacesView(frame: UIScreen.main.bounds)
-        // make additional setup of view or save references to subviews
+       view = LandmarkListView(frame: UIScreen.main.bounds)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.topItem?.title = "Landmarks"
-        rootView?.tableView.register(ListCell.self, forCellReuseIdentifier: ListCell.reuseId)
+        rootView?.tableView.register(LandmarkListCell.self, forCellReuseIdentifier: LandmarkListCell.reuseId)
         rootView?.tableView.dataSource = self
         rootView?.tableView.delegate = self
         rootView?.switchSlider.delegate = self
@@ -59,7 +51,7 @@ class lovelyPlacesViewController: UIViewController {
 
     // MARK: Do something
     func doSomething() {
-        let request = lovelyPlaces.Something.Request()
+        let request = LandmarkList.Something.Request()
         interactor.doSomething(request: request, isFav: false)
        
     }
@@ -67,21 +59,21 @@ class lovelyPlacesViewController: UIViewController {
     
 }
 
-extension lovelyPlacesViewController: Switchdelegate {
+extension LandmarkListViewController: Switchdelegate {
     func switchDidChange(stateOfSwitch: Bool) {
-        let request = lovelyPlaces.Something.Request()
+        let request = LandmarkList.Something.Request()
         interactor.doSomething(request: request, isFav: stateOfSwitch)
     }
     
     
 }
 
-extension lovelyPlacesViewController: lovelyPlacesDisplayLogic {
-    func displaySomething(viewModel: lovelyPlaces.Something.ViewModel) {
+extension LandmarkListViewController: LandmarkListDisplayLogic {
+    func displaySomething(viewModel: LandmarkList.Something.ViewModel) {
         display(newState: viewModel.state)
     }
 
-    func display(newState: lovelyPlaces.ViewControllerState) {
+    func display(newState: LandmarkList.ViewControllerState) {
         state = newState
         switch state {
         case .loading:
@@ -97,7 +89,7 @@ extension lovelyPlacesViewController: lovelyPlacesDisplayLogic {
     }
 }
 
-extension lovelyPlacesViewController: UITableViewDataSource, UITableViewDelegate {
+extension LandmarkListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch state {
             case .loading:
@@ -113,9 +105,9 @@ extension lovelyPlacesViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ListCell.reuseId, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: LandmarkListCell.reuseId, for: indexPath)
         
-        if let placeCell = cell as? ListCell {
+        if let placeCell = cell as? LandmarkListCell {
             switch state {
             case .loading:
                 print("")
@@ -134,18 +126,10 @@ extension lovelyPlacesViewController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let router = Router(builder: PlaceMapBuilder())
-        
-       
-        //datastore.models
-        
         switch state {
-       
         case .loading:
             print("")
         case .result(let viewModel):
-//
-//            navigationController?.pushViewController(router.presentViewController(), animated: true)
             var datastore = PlaceMapDataStore()
             datastore.models = viewModel[indexPath.row]
             let presenter = PlaceMapPresenter()

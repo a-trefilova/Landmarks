@@ -6,25 +6,25 @@
 //  Copyright © 2020 Alyona Sabitskaya . All rights reserved.
 //
 
-protocol lovelyPlacesProviderProtocol {
-    func getItems(completion: @escaping ([lovelyPlacesModel]?, lovelyPlacesProviderError?) -> Void)
+protocol LandmarkListProviderProtocol {
+    func getItems(completion: @escaping ([LandmarkModel]?, LandmarkListProviderError?) -> Void)
 }
 
-enum lovelyPlacesProviderError: Error {
+enum LandmarkListProviderError: Error {
     case getItemsFailed(underlyingError: Error)
 }
 
 /// Отвечает за получение данных модуля lovelyPlaces
-struct lovelyPlacesProvider: lovelyPlacesProviderProtocol {
-    let dataStore: lovelyPlacesDataStore
-    let service: lovelyPlacesServiceProtocol
+struct LandmarkListProvider: LandmarkListProviderProtocol {
+    let dataStore: LandmarkDataStore
+    let service: LandmarkListServiceProtocol
 
-    init(dataStore: lovelyPlacesDataStore = lovelyPlacesDataStore(), service: lovelyPlacesServiceProtocol = lovelyPlacesService()) {
+    init(dataStore: LandmarkDataStore = LandmarkDataStore(), service: LandmarkListServiceProtocol = LandmarkListService()) {
         self.dataStore = dataStore
         self.service = service
     }
 
-    func getItems(completion: @escaping ([lovelyPlacesModel]?, lovelyPlacesProviderError?) -> Void) {
+    func getItems(completion: @escaping ([LandmarkModel]?, LandmarkListProviderError?) -> Void) {
         if dataStore.models?.isEmpty == false {
             return completion(self.dataStore.models, nil)
         }

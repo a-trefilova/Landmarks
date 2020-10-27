@@ -7,6 +7,6 @@
 //
 
 /// Класс для хранения данных модуля lovelyPlaces
-class lovelyPlacesDataStore {
-    var models: [lovelyPlacesModel]?
+class LandmarkDataStore {
+    var models: [LandmarkModel]?
 }
