@@ -38,6 +38,7 @@ class LandmarkListViewController: UIViewController {
         rootView?.landmarkListTableView.dataSource = self
         rootView?.landmarkListTableView.delegate = self
         rootView?.switchSlider.delegate = self
+        rootView?.landmarkListTableView.tableFooterView = UIView()
         getListOfLandmarks()
     }
     
