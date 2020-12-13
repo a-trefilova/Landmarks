@@ -2,14 +2,7 @@
 import UIKit
 import SnapKit
 
-extension LandmarkListView {
-    struct Appearance {
-        let exampleOffset: CGFloat = 10
-    }
-}
-
 class LandmarkListView: UIView {
-    let appearance = Appearance()
     var landmarkListTableView: UITableView = {
         let tableView = UITableView(frame: CGRect.zero,
                                     style: .plain)

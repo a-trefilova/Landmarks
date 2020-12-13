@@ -1,7 +1,6 @@
 
 
 enum DetailedLandmark {
-    // MARK: Use cases
     enum GetDetailsCase {
         struct Request {
         }

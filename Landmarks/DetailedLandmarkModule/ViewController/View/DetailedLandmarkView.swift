@@ -2,14 +2,8 @@ import UIKit
 import SnapKit
 import MapKit
 
-extension DetailedLandmarkView {
-    struct Appearance {
-        let exampleOffset: CGFloat = 10
-    }
-}
 
 class DetailedLandmarkView: UIView {
-    let appearance = Appearance()
     private let coefficientOfMultyply: CGFloat = 0.6
     private var landmarkImageWidth: CGFloat!
     var screenContainerView: UIView = {

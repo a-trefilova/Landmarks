@@ -1,10 +1,3 @@
-//
-//  lovelyPlacesModel.swift
-//  lovelyPlaces
-//
-//  Created by Alyona Sabitskaya  on 22.10.2020.
-//  Copyright © 2020 Alyona Sabitskaya . All rights reserved.
-//
 
 import Foundation
 
@@ -13,7 +6,7 @@ struct LandmarkListViewModel {
     var isFavouriteSwitchedOn: Bool
 }
 
-/// Модель данных, описывающая ...
+
 struct LandmarkModel: Codable {
     // Example
     let id: Int
